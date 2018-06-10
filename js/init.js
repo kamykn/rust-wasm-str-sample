@@ -58,7 +58,7 @@ async function main() {
 			let instance = results.instance;
 			console.log(instance);
 			let wasmStr = new wasmStrTest(instance);
-			wasmStr.test("hogehgoe");
+			wasmStr.test(["hogehgoe"]);
 		});
 
 }

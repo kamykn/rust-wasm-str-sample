@@ -11,6 +11,12 @@ pub unsafe extern "C" fn get_hello(s: js_string_utils::JsInteropString) -> *mut 
     sget_hello(&s)
 }
 
+#[no_mangle]
+pub unsafe extern "C" fn get_hello_from_list(strList: &[js_string_utils::JsInteropString]) -> *mut c_char {
+    let s = strList[0].into_boxed_string();
+    sget_hello(&s)
+}
+
 pub fn sget_hello(somestring: &str ) -> *mut c_char {
     let s = CString::new(somestring).unwrap();
     s.into_raw()
